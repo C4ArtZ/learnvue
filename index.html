@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .is-loading {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+        }
+        .is-loading div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #fff;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+        .is-loading div:nth-child(1) {
+        left: 8px;
+        animation: is-loading1 0.6s infinite;
+        }
+        .is-loading div:nth-child(2) {
+        left: 8px;
+        animation: is-loading2 0.6s infinite;
+        }
+        .is-loading div:nth-child(3) {
+        left: 32px;
+        animation: is-loading2 0.6s infinite;
+        }
+        .is-loading div:nth-child(4) {
+        left: 56px;
+        animation: is-loading3 0.6s infinite;
+        }
+        @keyframes is-loading1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+        }
+        @keyframes is-loading3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+        }
+        @keyframes is-loading2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(24px, 0);
+        }
+        }
+
+    </style>
+</head>
+<body class="h-full grid place-items-center bg-gray-900 text-emerald-500">
+    
+    <div id="app">
+        <app-button :processing="true">Submit</app-button>
+    </div>
+
+    <script type="module">
+
+        import App from "./episode_6/js/components/App.js"
+
+        Vue.createApp(App).mount('#app')
+
+    </script>
+</body>
+</html>
